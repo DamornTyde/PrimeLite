@@ -15,10 +15,10 @@ document.addEventListener("keydown", function(e) {
 
 function setInput(x) {
     if(document.activeElement.id != "input") {
-        const field = document.getElementById("input").value
-        const i = Number(field) + x;
+        const field = document.getElementById("input")
+        const i = Number(field.value) + x;
         if (Number.isSafeInteger(i) && i > 1) {
-            field = i;
+            field.value = i;
         }
     }
 }
