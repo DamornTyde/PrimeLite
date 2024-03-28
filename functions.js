@@ -29,7 +29,7 @@ document.getElementById("submit").addEventListener("click", function () {
     if (Number.isSafeInteger(input) && input > 1) {
         const answer = [];
         let lastNumber = 2;
-        while (lastNumber * lastNumber =< test) {
+        while (lastNumber * lastNumber <= test) {
             if (test % lastNumber == 0) {
                 answer.push(lastNumber);
                 test = test / lastNumber;
