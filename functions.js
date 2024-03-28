@@ -34,7 +34,7 @@ document.getElementById("submit").addEventListener("click", function () {
                 answer.push(lastNumber);
                 test = test / lastNumber;
             } else {
-                lastNumber += 2 - (lastNumber % 2);
+                lastNumber += (lastNumber % 2) + 1;
             }
         }
         answer.push(test);
