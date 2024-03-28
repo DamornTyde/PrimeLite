@@ -26,7 +26,16 @@ function setInput(x) {
 document.getElementById("submit").addEventListener("click", function () {
     const input = Number(document.getElementById("input").value);
     if (Number.isSafeInteger(input) && input > 1) {
-        const answer = calc(input);
+        const answer = [];
+        let lastNumber = 2;
+        while (lastNumber * lastNumber > input) {
+            if (input % lastNumber == 0) {
+                answer.push(lastNumber);
+                input = input / lastNumber;
+            } else {
+                lastNumber += 2 - lastNumber % 2;
+            }
+        }
         const output = document.createDocumentFragment();
         output.appendChild(document.createTextNode(`${input.toLocaleString()} = `));
         let i = 0;
@@ -51,20 +60,3 @@ document.getElementById("submit").addEventListener("click", function () {
     }
     alert("Invalid input!");
 });
-
-function calc(input) {
-    const answer = [];
-    let lastNumber = 2;
-    while (true) {
-        if (lastNumber * lastNumber > input) {
-            answer.push(input);
-            return answer;
-        }
-        if (input % lastNumber == 0) {
-            answer.push(lastNumber);
-            input = input / lastNumber;
-        } else {
-            lastNumber += (lastNumber % 2) + 1;
-        }
-    }
-}
