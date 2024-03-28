@@ -36,6 +36,7 @@ document.getElementById("submit").addEventListener("click", function () {
                 lastNumber += 2 - lastNumber % 2;
             }
         }
+        answer.push(input);
         const output = document.createDocumentFragment();
         output.appendChild(document.createTextNode(`${input.toLocaleString()} = `));
         let i = 0;
