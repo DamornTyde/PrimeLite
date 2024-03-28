@@ -34,10 +34,10 @@ document.getElementById("submit").addEventListener("click", function () {
                 answer.push(lastNumber);
                 test = test / lastNumber;
             } else {
-                lastNumber += 2 - lastNumber % 2;
+                lastNumber += 2 - (lastNumber % 2);
             }
         }
-        answer.push(input);
+        answer.push(test);
         const output = document.createDocumentFragment();
         output.appendChild(document.createTextNode(`${input.toLocaleString()} = `));
         let i = 0;
