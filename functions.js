@@ -25,9 +25,9 @@ function setInput(x) {
 
 document.getElementById("submit").addEventListener("click", function () {
     const input = Number(document.getElementById("input").value);
-    let test = input;
     if (Number.isSafeInteger(input) && input > 1) {
         const answer = [];
+        let test = input;
         let lastNumber = 2;
         while (lastNumber * lastNumber <= test) {
             if (test % lastNumber == 0) {
