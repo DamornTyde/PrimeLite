@@ -41,7 +41,7 @@ document.getElementById("submit").addEventListener("click", function () {
         const output = document.createDocumentFragment();
         output.appendChild(document.createTextNode(`${input.toLocaleString()} = `));
         let i = 0;
-        while (true) {
+        while (i < answer.length) {
             const x = answer[i];
             output.appendChild(document.createTextNode(x.toLocaleString()));
             const y = answer.filter(z => z == x).length;
@@ -51,14 +51,14 @@ document.getElementById("submit").addEventListener("click", function () {
                 output.appendChild(sup);
             }
             i += y;
-            if (i == answer.length) {
-                const print = document.getElementById("print");
-                print.innerHTML = "";
-                print.appendChild(output);
-                return;
+            if (i < answer.length) {
+                output.appendChild(document.createTextNode(" * "));
             }
-            output.appendChild(document.createTextNode(" * "));
         }
+        const print = document.getElementById("print");
+        print.innerHTML = "";
+        print.appendChild(output);
+    } else {
+        alert("Invalid input!");
     }
-    alert("Invalid input!");
 });
